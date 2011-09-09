@@ -1,0 +1,68 @@
+
+
+
+Download example deployment scripts and documentations:
+
+    $ git clone git@github.com:ddehghan/django-deploy-starterkit.git
+
+
+
+
+Setup Virtual Box
+
+
+
+setup Vagrant
+
+
+
+
+
+Instantiate a ubuntu server 32bit as a virtual guest machine
+
+Download a 32bit virtual machine. You only need to do this once
+    
+    $ vagrant box add lucid32 http://files.vagrantup.com/lucid32.box
+    
+    Notes:
+        the files that you download will be automatically saved in ~/.vagrant.d/boxes/
+        You only need to download a base image once. after that you can instantiate clones of this base image multiple times. 
+
+
+Create your virtual machine from the base image
+
+    $ cd vagrant
+    $ vagrant up
+    
+
+    Notes:
+        'Vagrant up' will read the Vagrantfile and instantiate a new vm for you. you will see this output:
+        
+        
+
+        (dev)mymachine@~/gitroot/django-deploy-starterkit/vagrant: vagrant up
+        [web_server_1] Fixed port collision 'ssh'. Now on port 2202.
+        [web_server_1] Importing base box 'lucid32'...
+        [web_server_1] The guest additions on this VM do not match the install version of
+        VirtualBox! This may cause things such as forwarded ports, shared
+        folders, and more to not work properly. If any of those things fail on
+        this machine, please update the guest additions and repackage the
+        box.
+
+        Guest Additions Version: 4.1.0
+        VirtualBox Version: 4.1.2
+        [web_server_1] Preparing host only network...
+        [web_server_1] Matching MAC address for NAT networking...
+        [web_server_1] Clearing any previously set forwarded ports...
+        [web_server_1] Forwarding ports...
+        [web_server_1] -- ssh: 22 => 2202 (adapter 1)
+        [web_server_1] Creating shared folders metadata...
+        [web_server_1] Running any VM customizations...
+        [web_server_1] Booting VM...
+        [web_server_1] Waiting for VM to boot. This can take a few minutes.
+        [web_server_1] VM booted and ready for use!
+        [web_server_1] Enabling host only network...
+        [web_server_1] Mounting shared folders...
+        [web_server_1] -- v-root: /vagrant
+
+
