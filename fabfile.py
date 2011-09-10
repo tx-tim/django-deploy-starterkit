@@ -18,7 +18,7 @@ env.key_filename = '/usr/local/Cellar/ruby/1.9.2-p180/lib/ruby/gems/1.9.1/gems/v
 
 
 # Constants for where everything lives on the server.
-#env.root = "/home/web/myblog"
+env.root = "/home/vagrant/website"
 
 
 def setup_machine():
@@ -38,7 +38,9 @@ def setup_machine():
                               "libpq-dev subversion mercurial apache2 "
                               "libapache2-mod-wsgi")
 
-
 def setup_web():
     # Initial setup and package install.
-    sudo("mkdir -p /home/website/static")
+    sudo("mkdir -p %(root)s" % env)
+    sudo("chown vagrant:vagrant %(root)s" % env)
+    project.rsync_project("%(root)s"  % env, "src/")
+    
